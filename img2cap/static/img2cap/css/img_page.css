@@ -1,0 +1,425 @@
+.upload-wrap {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(162, 237, 189);
+}
+h1 {
+  margin: 75px auto 32px;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(47, 98, 218);
+  letter-spacing: 0.25px;
+}
+
+/* 캡션 선택 페이지 */
+.choice-wrap {
+  width: 73%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.choice-item {
+  width: 175px;
+  height: 190px;
+  padding: 40px 20px;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2rem 2rem -2rem hsl(200deg 50% 20% / 40%);
+  cursor: pointer
+}
+.choice-item:hover {
+  transform: translate(0px, -5px);
+  transition: all 0.2s ease;
+}
+.choice-item > img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 25px;
+}
+.choice-item > span {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.025em;
+}
+
+
+
+
+
+/* 이미지 업로드 페이지 */
+
+#img-main-wrap {
+  width: 65%;
+  background-color: rgb(241,241,241);
+  border-radius: 8px;
+  padding-bottom: 40px;
+}
+
+/* 디자인 */
+#img-main-wrap > div.design-element {
+  width: 100%;
+  height: 30px;
+  background-color: rgb(57,57,57);
+  border-radius: 8px 8px 0 0;
+}
+#img-main-wrap > div.design-element > span.design-item {
+  width: 9px;
+  height: 9px;
+  border-radius: 9px;
+  display: inline-block;
+  line-height: 30px;
+  margin-right: 1px;
+}
+#img-main-wrap > div.design-element > span.design-item:nth-child(1) {
+  background-color: rgb(253,82,84);
+  margin-left: 15px;
+}
+#img-main-wrap > div.design-element > span.design-item:nth-child(2) {
+  background-color: rgb(230,193,44);
+}
+#img-main-wrap > div.design-element > span.design-item:nth-child(3) {
+  background-color: rgb(88,198,45);
+}
+
+
+
+
+/* 이미지 */
+div.img-wrap {
+  width: 49%;
+  float: left;
+  border-right: 2px dashed rgb(188,188,188,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.img-area {
+  width: 350px;
+  height: 300px;
+  background-color: rgb(188,188,188,0.2);
+  border-radius: 10px;
+  margin: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+div.img-area > .img-icon {
+  width: 50px;
+}
+div.img-area > .img-thumb {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 10px;
+}
+div.img-area > span {
+  font-size: 0.65rem;
+}
+#input_img,
+#input_vid {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+#img_name {
+  display: block;
+  margin: 10px 18px 18px;
+  font-size: 0.65rem;
+  color: #666;
+  text-align: center;
+}
+#img_name > span {
+  color: black;
+}
+
+
+/* 번역 */
+div.lang-area {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+}
+.ui-segment{
+	color: #666;
+  float: right;
+	display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.ui-segment span.option.active{
+	background-color: rgb(162, 237, 189);
+	color: rgb(47, 98, 218);
+}
+.ui-segment span.option {
+  width: 55px;
+  height: 55px;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: rgb(188,188,188,0.3);
+  border-radius: 5px;
+}
+.ui-segment span.option:last-child{
+  margin-right: 0;
+}
+.ui-segment span.option > img {
+  width: 30px;
+  height: 30px;
+  margin: 4px auto 3px;
+  display: inline-block;
+}
+.ui-segment span.option > em {
+  font-style: normal;
+  display: inline-block;
+}
+
+.segment-select{
+	display:none;
+}
+div.lang-area > button,
+#return-btn {
+  width: 80%;
+  padding: 10px 5px;
+  background: none;
+  border: 2px solid rgba(47, 98, 218);
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+  cursor: pointer;
+}
+div.lang-area > button:hover,
+#return-btn:hover {
+  border: 2px solid rgba(47, 98, 218);
+  background: rgb(47, 98, 218);
+  color: white;
+  transition: 0.3s all ease;
+}
+.sample-box {
+  font-size: 0.7rem;
+  color: rgb(77,77,77);
+  text-align: center;
+  line-height: 19px;
+}
+
+div.manual-wrap > p {
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 10px 0 20px;
+}
+div.manual-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+div.manual-bottom > ul {
+  font-size: 0.6rem;
+  color: #666;
+}
+div.manual-bottom > ul > li:first-child {
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+}
+div.manual-bottom > a {
+  float: right;
+  width: 30px;
+  height: 30px;
+  font-size: 0.3rem;
+  text-align: center;
+  color: black;
+  margin-right: 20px;
+}
+div.manual-bottom > a > img {
+  width: 100%;
+}
+
+
+
+
+
+/* 이미지 결과 페이지 */
+.result-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 18px;
+}
+.insta-box {
+  width: 350px;
+  height: 430px;
+  background-color: white;
+  font-size: 11px;
+  border-radius: 5px;
+}
+.insta-menu {
+  width: 350px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+}
+
+.insta-menu > .menu-pf {
+  width: 31px;
+  height: 31px;
+  border-radius: 30px;
+  margin: 5px 6px 0;
+}
+.insta-menu > .menu-pf > img {
+  width: 100%;
+  height: 100%;
+}
+.insta-box > .insta-menu:first-child {
+  line-height: 40px;
+}
+.bottom-menu > img {
+  width: 100%;
+  height: 100%;
+}
+.insta-img {
+  width: 350px;
+  height: 300px;
+}
+.insta-img > img {
+  width: 100%;
+  height: 100%;
+  background-color: silver;
+}
+.hash-wrap {
+  width: 95%;
+  margin: 5px auto 0;
+}
+.hash-wrap > p > span {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+
+/* Caption */
+.cap-wrap {
+  width: 48%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+.cap-area {
+  width: 97%;
+  height: 130px;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.cap-lang {
+  width: 100%;
+  height: 25px;
+  background-color: rgb(228,228,228);
+  border-radius: 8px 8px 0 0;
+  font-size: 0.7rem;
+  line-height: 25px;
+  padding-left: 7px;
+  padding-right: -7px;
+  margin-bottom: 7px;
+}
+.cap-area > .result-txt {
+  width: 80%;
+  height: 100px;
+  padding: 7px;
+  font-size: 1.1rem;
+  float: left;
+}
+.cap-area > .result-btn {
+  width: 10%;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+  float: right;
+}
+.cap-area > .result-btn > img {
+  width: 30px;
+  cursor: pointer;
+}
+.cap-wrap > small {
+  font-size: 0.4rem;
+  color: #666;
+  text-align: center;
+}
+
+
+/* 비디오 캡션 */
+.vid-cap-area {
+  height: 350px;
+  border-radius: 5px;
+}
+.vid-cap-area > h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.vid-cap-result {
+  width: 100%;
+  height: 93%;
+  overflow-y: auto;
+}
+.vid-cap-result > ul > li {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  overflow: auto;
+}
+.vid-cap-sec {
+  font-size: 0.6rem;
+  margin-left: 3px;
+  margin-right: -3px;
+  color: rgb(47, 98, 218);
+  font-weight: bold;
+}
+.vid-cap-txt {
+  width: 80%;
+  padding: 5px;
+  font-size: 0.7rem;
+}
+.vid-cap-tts > img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

@@ -1,0 +1,54 @@
+{% extends 'img2cap/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="upload-wrap">
+  <h1>Result</h1>
+  <div id="img-main-wrap">
+    <div class="design-element">
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+    </div>
+
+    <div class="result-wrap">
+      <div class="insta-box">
+        <div class="insta-menu">
+          <div class="menu-pf">
+            <img src="{% static 'img2cap/imgs/insta_logo.png' %}">
+          </div>
+          <p>img2cap_result</p>
+        </div>
+
+        {% if uploaded_file_url %}
+        <div class="insta-img">
+          <img src="{{ uploaded_file_url }}">
+        </div>
+        <div class="insta-menu bottom-menu">
+          <img src="{% static 'img2cap/imgs/insta_frame2.png' %}">
+        </div>
+        <div class="hash-wrap">
+          <p>
+            <span>img2cap_result</span>
+            {{ uploaded_file_url }}<br>
+            {% for ht in hashtags %}
+            {{ ht }}
+            {% endfor %}
+          </p>
+        </div>
+      </div>
+
+      <div class="cap-wrap">
+        <div class="cap-area">
+          <div class="cap-lang">분석 결과</div>
+          <div class="result-txt" id="result1">{{ result_kor }}</div>
+        </div>
+        {% endif %}
+        <a href="{% url 'img2cap:delete_img' file_name=uploaded_file_name %}" id="return-btn">BACK</a>
+        <small>BACK 버튼을 누르면 업로드 화면으로 돌아갑니다<br>업로드한 이미지 정보는 사라집니다</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

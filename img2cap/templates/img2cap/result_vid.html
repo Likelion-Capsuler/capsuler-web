@@ -1,0 +1,99 @@
+{% extends 'img2cap/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="upload-wrap">
+  <h1>Result</h1>
+  <div id="img-main-wrap">
+    <div class="design-element">
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+    </div>
+
+    <div class="result-wrap">
+      <div class="insta-box">
+        <div class="insta-menu">
+          <div class="menu-pf"></div>
+          <p>vid2cap_result</p>
+        </div>
+
+        {% if uploaded_vid_url %}
+        <div class="insta-vid">
+          <video controls width=350px height=300px>
+            <source src="{{ uploaded_vid_url }}" type="video/webm">
+          </video>
+        </div>
+
+        <div class="insta-menu bottom-menu">
+          <img src="{% static 'img2cap/imgs/insta_frame2.png' %}">
+        </div>
+        <div class="hash-wrap">
+          <p>
+            <span>vid2cap_result</span>
+            {{ uploaded_vid_url }}<br>
+          </p>
+        </div>
+      </div>
+
+      <div class="cap-wrap">
+        <div class="vid-cap-area">
+          <h2>Captions</h2>
+          <div class="vid-cap-result">
+            <ul>
+              {% for caption in predict_result_vid %}
+              <li>
+                <span class="vid-cap-sec">{{ forloop.counter0 }}s &gt;</span>
+                <span class="vid-cap-txt">{{ caption }}</span>
+                <span class="vid-cap-tts">
+                  <img src="{% static 'img2cap/imgs/ico-speaker.png' %}">
+                </span>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+          {% endif %}
+
+        </div>
+        <a href="{% url 'img2cap:delete_img' file_name=uploaded_vid_name %}" id="return-btn">HOME</a>
+        <small>HOME 버튼을 누르면 캡션선택 화면으로 돌아갑니다.<br>업로드한 동영상 정보는 사라집니다.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // TTS
+  function speak(text, opt_select) {
+
+      const option = opt_select
+
+      const speechMsg = new SpeechSynthesisUtterance()
+      speechMsg.rate = option.rate  // 속도: 0.1 ~ 10
+      speechMsg.pitch = option.pitch  // 음높이: 0 ~ 2
+      speechMsg.lang = option.lang
+      speechMsg.text = text
+
+      // SpeechSynthesisUtterance에 저장된 조건으로 음성 실행
+      window.speechSynthesis.speak(speechMsg)
+  }
+
+
+  // 버튼 클릭시 tts 실행
+  $('.vid-cap-tts').click(function(){
+      var text = $(this).prev().text();
+      console.log(text);
+
+      speak(text, {
+            rate: 1,
+            pitch: 1.2,
+            lang: 'en-US',
+      })
+  })
+
+</script>
+
+
+{% endblock %}

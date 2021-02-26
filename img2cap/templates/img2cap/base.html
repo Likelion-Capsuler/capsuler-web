@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="{% static 'img2cap/css/common.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'img2cap/css/loader.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'img2cap/css/img_page.css' %}" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>CAPSULER PROJECT upload</title>
+  </head>
+  <body>
+    <div id="page-loader">
+      <div class="fl fl-spinner spinner7">
+        <div class="circ1"></div>
+        <div class="circ2"></div>
+        <div class="circ3"></div>
+        <div class="circ4"></div>
+        <p>LOADING</p>
+      </div>
+    </div>
+
+    <div class="section  full-sec">
+      <div class="top-area nav-down">
+        <div>
+          <a href="{% url 'img2cap:index' %}" id="logo">
+            <img src="{% static 'img2cap/imgs/capsuler_logo1.png' %}">
+          </a>
+
+          <ul id="nav">
+            <li>　</li>
+            <li>
+              <a href="{% url 'img2cap:index' %}#pj_intro1">INTRO</a>
+            </li>
+            <li>
+              <a href="{% url 'img2cap:index' %}#pj_intro1-2">ABOUT</a>
+            </li>
+            <li>
+              <a href="{% url 'img2cap:index' %}#mem_intro">TEAM</a>
+            </li>
+            <li>
+              <a href="{% url 'img2cap:cap_list' %}" id="capsuler_nav">CAPSULER</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="upload-area">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div class="footer">
+      <p>Copyright(C) 2021. team CAPSULER. All rights reserved.</p>
+    </div>
+
+
+
+    <script src="{% static 'img2cap/js/common.js' %}"></script>
+    <script src="{% static 'img2cap/js/img_upload.js' %}"></script>
+    <script src="{% static 'img2cap/js/vid_upload.js' %}"></script>
+
+    <script>
+    $(document).ready(function($){
+      $('#page-loader').fadeOut();
+    });
+
+    </script>
+
+  </body>
+</html>

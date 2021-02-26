@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="{% static 'img2cap/css/common.css' %}" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>CAPSULER PROJECT</title>
+  </head>
+  <body>
+    <div class="deco-area">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="section  full-sec">
+      <div class="top-area nav-down">
+        <div>
+          <a href="{% url 'img2cap:index' %}" id="logo">
+            <img src="{% static 'img2cap/imgs/capsuler_logo1.png' %}">
+          </a>
+
+          <ul id="nav">
+            <li>　</li>
+            <li>
+              <a href="{% url 'img2cap:index' %}#pj_intro1">INTRO</a>
+            </li>
+            <li>
+              <a href="{% url 'img2cap:index' %}#pj_intro1-2">ABOUT</a>
+            </li>
+            <li>
+              <a href="{% url 'img2cap:index' %}#mem_intro">TEAM</a>
+            </li>
+            <li id="capsuler_nav">
+              <a href="{% url 'img2cap:cap_list' %}">CAPSULER</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="content-box" id="main">
+        <div class="content-wrap">
+          <!-- 그냥 뭐 대충 메인 문장 -->
+          <div class="animated-box in">
+            <h1>Convert<br>your PHOTO<br>to TEXT</h1>
+            <p>CAPSULER PROJECT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="margin-box"></div>
+
+        <div class="content-box" id="pj_intro1">
+          <div class="content-wrap">
+            <div class="left-wrap" data-aos="fade-up" data-aos-duration="500">
+              <img src="{% static 'img2cap/imgs/insta.jpg' %}">
+            </div>
+
+            <div class="right-wrap" data-aos="fade-up" data-aos-duration="1500">
+              <h2>시각장애인은<br>어떻게 인스타를 할까?</h2>
+              <p>
+                우리 프로젝트는 이 물음에서 시작되어,<br>
+                ‘이미지를 글처럼 읽을 수는 없을까?’로 이어졌습니다,<br>
+                물음에 답하기 위해 5명의 팀원이 2주동안 작업해<br>
+                이미지를 인식하여 글과 음성으로 출력하는 서비스를 만들었습니다.<br>
+                캡슐러는 그 과정이 모두 담긴 결과입니다.<br>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-box"></div>
+
+        <div class="content-box" id="pj_intro1-2">
+          <div class="content-wrap">
+            <h2>캡슐러:CAPSULER</h2>
+            <div class="pintro12-top">
+              <img src="{% static 'img2cap/imgs/capsuler_logo1.png' %}" data-aos="fade-up" data-aos-duration="700">
+            </div>
+            <div class="pintro12-bottom" data-aos="fade-up" data-aos-duration="1500">
+              <p>
+                <q>이미지를 언어라는 캡슐에 담다</q><br>
+                CNN (Inception V3) , RNN (LSTM) 을 활용해 이미지로부터 캡션을 추출하여<br>
+                Translation API 를 활용하여 다국어로 번역했습니다.<br>
+                Tokenizing 을 통해 한국어 캡션에서 해시태그를 생성하고,<br>
+                Speech Synthesis를 활용해 캡션을 음성으로 변환했습니다.<br>
+                또한, OpenCV 라이브러리를 활용해 영상 캡션을 추출했습니다.<br>
+              </p>
+              <div class="pintro-view">
+                <a href="https://github.com/Likelion-Capsuler/capsuler.git">Github에서 보기</a>
+                <a href="{% static 'img2cap/files/capsuler.pdf' %}" download>pdf 다운받기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-box"></div>
+        <div class="margin-box"></div>
+        <div class="margin-box"></div>
+
+        <div class="content-box" id="pj_intro2">
+          <!-- 프로젝트 설명 / 프로젝트 바로가기 -->
+          <div class="content-wrap">
+            <h2> Image Captioning Project </h2>
+
+            <div class="top-wrap">
+              <div class="pintro-box" data-aos="fade-up" data-aos-duration="800">
+                <div class="pintro-ico">
+                  <img src="{% static 'img2cap/imgs/ico-cc.png' %}">
+                </div>
+                <div class="pintro-txt">Caption</div>
+              </div>
+
+              <div class="pintro-box" data-aos="fade-up" data-aos-duration="1500">
+                <div class="pintro-ico">
+                  <img src="{% static 'img2cap/imgs/ico-speaker.png' %}">
+                </div>
+                <div class="pintro-txt">TTS</div>
+              </div>
+
+              <div class="pintro-box" data-aos="fade-up" data-aos-duration="2200">
+                <div class="pintro-ico">
+                  <img src="{% static 'img2cap/imgs/ico-translate.png' %}">
+                </div>
+                <div class="pintro-txt">TRANSLATION</div>
+              </div>
+
+            </div>
+
+            <div class="bottom-wrap">
+              <a href="{% url 'img2cap:cap_list' %}">CAPSULER <small>바로가기</small></a>
+            </div>
+          </div>
+        </div>
+        <div class="margin-box"></div>
+      </div>
+    </div>
+
+
+    <div class="section full-sec">
+      <div class="content-box" id="mem_intro">
+        <div class="content-wrap">
+        <!-- 팀원 소개  -->
+
+          <h2>TEAM CAPSULER</h2>
+
+          <div class="mintro-wrap">
+            <div class="mintro_box" data-aos="flip-right">
+              <div class="m-img">
+                <img src="{% static 'img2cap/imgs/mem-pf1.gif' %}">
+              </div>
+              <div>
+                <p class="mem_name">HAEUN KANG</p>
+                <p class="mem_contact"><a href="mailto:haeun.yah@likelion.org">haeun.yah@likelion.org</a></p>
+              </div>
+            </div>
+
+            <div class="mintro_box" data-aos="flip-right">
+              <div class="m-img">
+                <img src="{% static 'img2cap/imgs/mem-pf2.png' %}">
+              </div>
+              <div>
+                <p class="mem_name">SOOMIN KIM</p>
+                <p class="mem_contact"><a href="mailto:ksmin9601@likelion.org">ksmin9601@likelion.org</a></p>
+              </div>
+            </div>
+
+            <div class="mintro_box" data-aos="flip-right">
+              <div class="m-img">
+                <img src="{% static 'img2cap/imgs/mem-pf3.gif' %}">
+              </div>
+              <div>
+                <p class="mem_name">SOOHEE KIM</p>
+                <p class="mem_contact"><a href="mailto:peeinnkim@likelion.org">peeinnkim@likelion.org</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mintro-wrap">
+            <div class="mintro_box" data-aos="flip-right">
+              <div class="m-img">
+                <img src="{% static 'img2cap/imgs/mem-pf4.gif' %}">
+              </div>
+              <div class="m-txt">
+                <p class="mem_name">HYEONSEON DANG</p>
+                <p class="mem_contact"><a href="mailto:">hyeonseon.dang@likelion.org</a></p>
+              </div>
+            </div>
+
+            <div class="mintro_box" data-aos="flip-right">
+              <div class="m-img">
+                <img src="{% static 'img2cap/imgs/mem-pf5.jpg' %}">
+              </div>
+              <div class="m-txt">
+                <p class="mem_name">JAEJUN LEE</p>
+                <p class="mem_contact"><a href="mailto:study.ai25@likelion.org">study.ai25@likelion.org</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="margin-box"></div>
+    </div>
+
+
+    <div class="footer">
+      <div class="margin-box"></div>
+      <div class="margin-box"></div>
+      <p>Copyright(C) 2021. team CAPSULER. All rights reserved.</p>
+    </div>
+
+
+    <script src="{% static 'img2cap/js/common.js' %}"></script>
+    <script>
+      AOS.init({
+          easing: 'ease-out-back',
+          duration: 1000
+      });
+    </script>
+
+  </body>
+</html>

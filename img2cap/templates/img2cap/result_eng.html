@@ -1,0 +1,107 @@
+{% extends 'img2cap/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="upload-wrap">
+  <h1>Result</h1>
+  <div id="img-main-wrap">
+    <div class="design-element">
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+    </div>
+
+    <div class="result-wrap">
+      <div class="insta-box">
+        <div class="insta-menu">
+          <div class="menu-pf">
+            <img src="{% static 'img2cap/imgs/insta_logo.png' %}">
+          </div>
+          <p>img2cap_result</p>
+        </div>
+
+        {% if uploaded_file_url %}
+        <div class="insta-img">
+          <img src="{{ uploaded_file_url }}">
+        </div>
+        <div class="insta-menu bottom-menu">
+          <img src="{% static 'img2cap/imgs/insta_frame2.png' %}">
+        </div>
+        <div class="hash-wrap">
+          <p>
+            <span>img2cap_result</span>
+            {{ uploaded_file_url }}<br>
+            #캡슐러 #이미지캡셔닝 #img2cap
+          </p>
+        </div>
+      </div>
+
+      <div class="cap-wrap">
+        <div class="cap-area">
+          <div class="cap-lang">eng</div>
+          <div class="result-txt" id="result1">{{ result_eng }}</div>
+          <div class="result-btn" id="btn-read1">
+            <img src="{% static 'img2cap/imgs/ico-speaker.png' %}">
+          </div>
+        </div>
+
+        <div class="cap-area">
+          <div class="cap-lang" id="lang">{{target_lang}}</div>
+          <div class="result-txt" id="result2">{{result_translate}}</div>
+          <div class="result-btn" id="btn-read2">
+            <img src="{% static 'img2cap/imgs/ico-speaker.png' %}">
+          </div>
+        </div>
+        {% endif %}
+
+        <a href="{% url 'img2cap:delete_img' file_name=uploaded_file_name %}" id="return-btn">BACK</a>
+        <small>BACK 버튼을 누르면 캡션선택 화면으로 돌아갑니다.<br>업로드한 이미지 정보는 사라집니다.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  // TTS
+  function speak(text, opt_select) {
+
+      const option = opt_select
+
+      const speechMsg = new SpeechSynthesisUtterance()
+      speechMsg.rate = option.rate  // 속도: 0.1 ~ 10
+      speechMsg.pitch = option.pitch  // 음높이: 0 ~ 2
+      speechMsg.lang = option.lang
+      speechMsg.text = text
+
+      // SpeechSynthesisUtterance에 저장된 조건으로 음성 실행
+      window.speechSynthesis.speak(speechMsg)
+  }
+
+  // 예측 버튼
+  const text1 = document.getElementById("result1").innerText  // 결과 text
+  const btnRead1 = document.getElementById("btn-read1") // 버튼 클릭 여부
+
+  btnRead1.addEventListener("click", e => {
+              speak(text1, {
+                    rate: 1,
+                    pitch: 1.2,
+                    lang: 'en-US',
+              })
+          })
+
+  // 번역 버튼
+  const selectLang = document.getElementById("lang").innerText  // 결과 text
+  const text2 = document.getElementById("result2").innerText  // 결과 text
+  const btnRead2 = document.getElementById("btn-read2") // 버튼 클릭 여부
+
+  btnRead2.addEventListener("click", e => {
+              speak(text2, {
+                    rate: 0.85,
+                    pitch: 1.0,
+                    lang: selectLang,
+              })
+          })
+
+</script>
+{% endblock %}

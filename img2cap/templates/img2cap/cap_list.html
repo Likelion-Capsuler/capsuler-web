@@ -1,0 +1,34 @@
+{% extends 'img2cap/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="upload-wrap">
+  <h1>원하는 캡션을 선택하세요</h1>
+
+  <div class="choice-wrap">
+    <div class="choice-item" data-url="{% url 'img2cap:upload_eng' %}">
+      <img src="{% static 'img2cap/imgs/ico-translate.png' %}">
+      <span>영어 &amp; 번역<br>캡션</span>
+    </div>
+    <div class="choice-item" data-url="{% url 'img2cap:upload_vid' %}">
+      <img src="{% static 'img2cap/imgs/ico-video.png' %}">
+      <span>비디오<br>캡션</span>
+    </div>
+    <div class="choice-item" data-url="{% url 'img2cap:upload_kor' %}">
+      <img src="{% static 'img2cap/imgs/ico-cc.png' %}">
+      <span>한국어<br>캡션<br><small style="font-size: 0.6rem;">(beta)</small></span>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $('.choice-item').click(function(){
+    location.href = $(this).attr('data-url');
+  })
+
+
+</script>
+
+
+{% endblock %}

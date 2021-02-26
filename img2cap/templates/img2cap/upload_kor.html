@@ -1,0 +1,96 @@
+{% extends 'img2cap/base.html' %}
+{% load static %}
+{% block content %}
+<div class="upload-wrap">
+  <h1>Upload Your Photo</h1>
+
+  <form action="{% url 'img2cap:predict_kor' %}" method="POST" enctype="multipart/form-data" id="img-main-wrap">
+    {% csrf_token %}
+    <div class="design-element">
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+      <span class="design-item"></span>
+    </div>
+
+
+    <div class="img-wrap">
+      <div class="img-area">
+        <img src="{% static 'img2cap/imgs/ico-pic.png' %}" class="img-icon">
+        <span>화면을 눌러 사진을 업로드해 주세요<span>
+      </div>
+
+      <input type="file" id="input_img" name="img_uploaded">
+      <p id="img_name">선택한 파일<br><span>-</span></p>
+    </div>
+
+    <div class="lang-area">
+      <input type="hidden" name="lang" value="ko">
+      <div class="ui-segment">
+        <span class="option active" data-val="ko">
+          <img src="{% static 'img2cap/imgs/ico-flag-kr.png' %}" data-val="ko">
+          <em data-val="ko">한국어</em>
+        </span>
+        <span class="option" data-val="ja">
+          <img src="{% static 'img2cap/imgs/ico-flag-jp.png' %}" data-val="ja">
+          <em data-val="ja">일본어</em>
+        </span>
+        <span class="option" data-val="zh-CN">
+          <img src="{% static 'img2cap/imgs/ico-flag-cn.png' %}" data-val="zh-CN">
+          <em data-val="zh-CN">중국어</em>
+        </span>
+        <span class="option" data-val="fr">
+          <img src="{% static 'img2cap/imgs/ico-flag-fr.png' %}" data-val="fr">
+          <em data-val="fr">프랑스어</em>
+        </span>
+      </div>
+
+      <button type="submit">CAPTIONING!</button>
+
+      <div class="manual-wrap">
+        <p>
+          사진을 업로드하면 캡슐러가 사진을 분석해서<br>
+          어떤 내용이 담긴 사진인지 설명해줄거에요!<br>
+        </p>
+
+        <div class="manual-bottom">
+          <ul>
+            <li>&lt; 사용방법 &gt;</li>
+            <li>1. 이미지를 업로드한다</li>
+            <li>2. 캡셔닝 버튼을 클릭한다</li>
+            <li>3. 여유롭게 기다린다</li>
+          </ul>
+
+          <a href="{% url 'img2cap:cap_list' %}">
+            <img src="{% static 'img2cap/imgs/ico-home.png' %}">
+            BACK
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+
+{% if error %}
+<script type="text/javascript">
+    swal("Error", "Please upload your image", "warning");
+</script>
+{% endif %}
+
+<script>
+  $('span.option').click(function(){
+    if (!$(this).hasClass('active')) {
+      alert('한국어-외국어 번역은 개발중!');
+    }
+
+  })
+
+  $('form').submit(function() {
+      $("#page-loader").show();
+      return true;
+  });
+
+</script>
+
+{% endblock %}

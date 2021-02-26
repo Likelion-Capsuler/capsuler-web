@@ -39,7 +39,7 @@
         <td align="center" width="130px" height="160px">
             <a href="https://github.com/pizzasoomin"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/78468049?s=460&u=8fbc9e222938108765216d97ec46e0b0c734a0dc&v=4" /></a>
             <br />
-            <a href="https://github.com/pizzasoomin">cola314</a>
+            <a href="https://github.com/pizzasoomin">pizzasoomin</a>
         </td>
         <td>
             <a>수민</a>
